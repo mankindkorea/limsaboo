@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="임사부가 작은 식당의 하루 영업을 운영하는 모바일 외식업 경영 게임"
+    />
+    <title>임사부의 오늘 식당</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="startScreen" class="start-screen">
+        <div class="storefront" aria-hidden="true">
+          <div class="awning"></div>
+          <div class="signboard">임사부 식당</div>
+          <div class="window">
+            <span class="steam steam-one"></span>
+            <span class="steam steam-two"></span>
+            <span class="bowl"></span>
+          </div>
+          <div class="door"></div>
+        </div>
+
+        <div class="start-copy">
+          <p class="eyebrow">모바일 외식업 경영 게임</p>
+          <h1>임사부의 오늘 식당</h1>
+          <p>
+            임사부가 되어 8번의 영업 상황을 넘겨보세요. 메뉴, 재료, 직원, 리뷰 대응을
+            고르면 매출과 만족도가 즉시 바뀝니다.
+          </p>
+        </div>
+
+        <button id="startBtn" class="primary-action" type="button">오늘 영업 시작</button>
+        <button id="howBtn" class="ghost-action" type="button">게임 방법</button>
+      </section>
+
+      <section id="gameScreen" class="game-screen" hidden>
+        <header class="topbar">
+          <div>
+            <span class="day-label">오늘의 사장님</span>
+            <strong>임사부</strong>
+          </div>
+          <button id="restartBtn" class="icon-action" type="button" aria-label="처음부터 다시">↻</button>
+        </header>
+
+        <section class="status-board" aria-label="가게 상태">
+          <article>
+            <span>매출</span>
+            <strong id="salesText">0만원</strong>
+          </article>
+          <article>
+            <span>만족도</span>
+            <strong id="happyText">70</strong>
+          </article>
+          <article>
+            <span>재고</span>
+            <strong id="stockText">70</strong>
+          </article>
+          <article>
+            <span>리뷰</span>
+            <strong id="reviewText">3.5</strong>
+          </article>
+        </section>
+
+        <section class="kitchen-scene" aria-label="식당 현장">
+          <div class="clock">
+            <span id="turnText">1 / 8</span>
+          </div>
+          <div class="chef" aria-hidden="true">
+            <span class="chef-hat"></span>
+            <span class="chef-face"></span>
+            <span class="chef-body"></span>
+          </div>
+          <div class="counter" aria-hidden="true">
+            <span class="pan"></span>
+            <span class="plate-mini"></span>
+            <span class="receipt"></span>
+          </div>
+        </section>
+
+        <section class="event-card" aria-live="polite">
+          <div class="event-meta">
+            <span id="timeText">오전 10:30</span>
+            <span id="tagText">오픈 준비</span>
+          </div>
+          <h2 id="eventTitle">오늘 첫 선택</h2>
+          <p id="eventStory">상황 설명이 여기에 표시됩니다.</p>
+        </section>
+
+        <section id="choices" class="choice-list" aria-label="선택지"></section>
+
+        <section class="log-panel" aria-label="영업 기록">
+          <div class="log-title">
+            <span>영업 기록</span>
+            <strong id="comboText">차분한 출발</strong>
+          </div>
+          <ul id="logList"></ul>
+        </section>
+      </section>
+
+      <section id="resultScreen" class="result-screen" hidden>
+        <div class="result-mark" id="resultMark">A</div>
+        <p class="eyebrow dark">오늘 영업 종료</p>
+        <h2 id="resultTitle">임사부의 결과</h2>
+        <p id="resultSummary"></p>
+
+        <div class="final-grid">
+          <article><span>총매출</span><strong id="finalSales">0만원</strong></article>
+          <article><span>고객 만족도</span><strong id="finalHappy">0</strong></article>
+          <article><span>남은 재고</span><strong id="finalStock">0</strong></article>
+          <article><span>리뷰 평점</span><strong id="finalReview">0.0</strong></article>
+        </div>
+
+        <div class="tip-box">
+          <span>임사부의 한마디</span>
+          <p id="finalTip"></p>
+        </div>
+
+        <button id="playAgainBtn" class="primary-action" type="button">다시 영업하기</button>
+      </section>
+
+      <dialog id="howDialog">
+        <button id="closeHowBtn" class="icon-action close" type="button" aria-label="닫기">×</button>
+        <h2>게임 방법</h2>
+        <p>
+          각 상황에서 하나를 선택하면 매출, 만족도, 재고, 리뷰가 변합니다. 8번의 선택 후
+          임사부 식당의 하루 성적표가 나옵니다.
+        </p>
+        <p>너무 공격적으로 팔면 재고와 만족도가 흔들리고, 너무 조심하면 매출이 부족해집니다.</p>
+      </dialog>
+    </main>
+
+    <script src="app.js?v=imsabu-restaurant-1"></script>
+  </body>
+</html>
